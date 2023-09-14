@@ -3,7 +3,11 @@
 % sea la misma que la numérica
 clc; close all;
 pkg load symbolic;
-% PLOTS_DIR = "C:/Users/tomi/Documents/plots/";
+
+xi = 0.559;
+wn = 2.36;
+a = wn^2;
+b = xi*wn;
 
 syms s;
 
@@ -13,12 +17,12 @@ grid on;
 set(gca, "linewidth", 2, "fontsize", 14);
 
 Xs = 1/s;
-Gas = (6*(s+1))/((s+2)*(s+3));
+Gas = a / (s*s+s*b+a);
 yat = ilaplace(Xs*Gas);
-yatA = @(t) u(t).*( 1 + 3.*exp(-2.*t) -4.*exp(-3.*t) );
+% yatA = @(t) u(t).*( 1 + 3.*exp(-2.*t) -4.*exp(-3.*t) );
 
 ezplot(yat, [0, 20]);
-T = [0:1e-3:20];
-plot(T, yatA(T), "linewidth", 2, "r;Analítica;");
+% T = [0:1e-3:20];
+% plot(T, yatA(T), "linewidth", 2, "r;Analítica;");
 
 legend();

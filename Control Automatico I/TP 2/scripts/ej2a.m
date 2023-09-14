@@ -18,13 +18,9 @@ chi = 1;
 Hs = (wn^2)/((s^2)+(2*wn*s)+(wn^2))
 Xs = 1/s;
 yt = ilaplace(Hs*Xs)
-myResponse = @(t) u(t).*(1 - t.*(exp(-wn.*t)));
+myResponse = @(t) u(t).*(1 - exp(-wn.*t) - wn.*t.*(exp(-wn.*t)));
 
 ezplot(yt, [0,2]);
-figure();
-hold on;
-grid on;
-set(gca, "linewidth", 2, "fontsize", 14);
 ezplot(myResponse, [0,2]);
 % T = [0:1e-6:2];
 % plot(T, myResponse(T), "linewidth", 2, "r;Analítica;");
