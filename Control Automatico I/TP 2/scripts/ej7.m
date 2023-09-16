@@ -3,14 +3,14 @@
 pkg load control;
 
 % DATOS
-xi = 0.559;
-wn = 2.36;
+xi = 91.56e-3;
+wn = 1.97;
 a = wn^2;
-b = xi*wn;
+b = 2*xi*wn;
 k = 0.25;
 
 %Especificaciones de la respuesta transitoria
-Mp = exp(-xi/(sqrt(1-xi^2))*pi)
+Mp = k*exp(-xi/(sqrt(1-xi^2))*pi)
 tp = pi/(wn*sqrt(1-xi^2))
 tr = (pi-acos(xi))/(wn*sqrt(1-xi^2))
 
