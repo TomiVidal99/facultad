@@ -16,7 +16,7 @@ tp = pi/(wn*sqrt(1-xi^2));
 tr = (pi-acos(xi))/(wn*sqrt(1-xi^2));
 
 %Defino G(s) y H(s)
-G = tf([scale*K], [1 a K]);
+G = tf([K], [1 a K]);
 
 %Respuesta al escalón de T(s)
 figure();
