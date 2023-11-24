@@ -3,12 +3,14 @@
 % Los mismos se encuentran en el archivo 'motor.mat'
 
 datos = load('motor.mat');
+disp(datos);
 freq = datos.f;
 fase = datos.fase;
 mod = 20*log10(datos.mod);
+% mod = datos.mod;
 
 figure('name', 'Respuesta en frecuencia del motor');
 subplot(2, 1, 1, 'align');
-plot(freq, mod);
+plot(log10(freq), mod);
 subplot(2, 1, 2);
-plot(freq, fase);
+plot(log10(freq), fase);
